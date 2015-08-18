@@ -1,0 +1,23 @@
+{
+  "olpVersion" : "0.1",
+
+  "paths" : [
+    {
+      "name" : "all-modules-lidmx",
+      "title" : "All Modules by Lenny Witman",
+      "description" : "See in one place all the modules published by Lenny Witman.",
+      "coverImage" : "https://raw.githubusercontent.com/outlearn-content/assets/master/space.jpg",
+      "privacy" : "public",
+      "pages" : [
+        {"module" : "deploy-to-heroku"}
+      ]
+    }
+  ],
+
+  "modules" : [
+    {"olm" : "./modules/deploy-to-heroku.md"}
+  ],
+
+  "assets" : [
+  ]
+}
