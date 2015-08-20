@@ -172,10 +172,13 @@ And now it's time to create the HTTP server:
 ``` javascript
 var server = http.createServer(function(request, response) { 
   var filePath = false; 
-  if (request.url == '/')
-   {    filePath = "public/index.html";
+
+  if (request.url == '/'){
+        filePath = "public/index.html";
    }  else {
-       filePath = "public" + request.url;  } 
+       filePath = "public" + request.url;
+   } 
+
   var absPath = "./" + filePath;
     serverWorking(response, absPath);});
 ```
