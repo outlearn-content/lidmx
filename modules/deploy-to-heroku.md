@@ -67,9 +67,10 @@ Well, it is a server! And we have evidence. What you got here is your own client
 
 But you should notice something, before we go further. Let's look more closely at our first Node server. This is an example of how Node provides you with non-blocking and event-driven behavior. Let me explain:
 
-```
-$.post('/some_requested_resource', function(data)
-{  console.log(data);});
+```javascript
+$.post('/some_requested_resource', function(data) {
+  console.log(data);
+});
 ```
 
 This code performs a request for some resource. When the response comes back, an anonymous function is called. It contains the argument `data`, which is the data received from that request.
@@ -98,7 +99,7 @@ Create your project directory. And then create the `server.js` file inside of it
 
 First of all, let's declare some variables:
 
-```
+```javascript
 var http = require("http");
 var fs = require("fs");
 var path = require("path");
@@ -128,21 +129,23 @@ It will create `node_modules` folder and place all the files inside of it. So, w
 
 We will now create `send404()` function. It will handle the sending of 404 error, which usually appears when requested file doesn't exist:
 
-```
+```javascript
 function send404(response) { 
   response.writeHead(404, {"Content-type" : "text/plain"}); 
   response.write("Error 404: resource not found"); 
-  response.end();}
+  response.end();
+}
 ```
 
 Nothing sophisticated with this one. It returns plain text when server can't find a page.
 
 Now we will define `sendPage()` function. It first writes the header and then sends the contents of the file:
 
-```
+```javascript
 function sendPage(response, filePath, fileContents) { 
   response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))}); 
-  response.end(fileContents);}
+  response.end(fileContents);
+}
 ```
 
 Notice the way we handle the MIME-types.
@@ -169,7 +172,7 @@ function serverWorking(response, absPath) { 
 
 And now it's time to create the HTTP server:
 
-``` javascript
+```javascript
 var server = http.createServer(function(request, response) { 
   var filePath = false; 
 
@@ -180,18 +183,19 @@ var server = http.createServer(function(request, response) { 
    } 
 
   var absPath = "./" + filePath;
-    serverWorking(response, absPath);});
+    serverWorking(response, absPath);
+});
 ```
 
 Now we need to start our server. And here's the tricky part. Do you remember how we told the server to listen to the 3000th port in our first example? No? I'll remind you:
 
-```
+```javascript
 http.createServer(<some code here>).listen(3000)
 ```
 
 We can do it when we run our server locally. But Heroku sets a dynamically assigned port number to your app. That's why we need to handle all this mess with ports as it’s shown below:
 
-```
+```javascript
 var port_number = server.listen(process.env.PORT || 3000);
 ```
 
@@ -204,8 +208,8 @@ We need to create the `index.html` file. It will determine our blog's exterior. 
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Blog</title>
+    <head>
+        <title>Blog</title>
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     </head>
     <body> 
@@ -217,13 +221,13 @@ We need to create the `index.html` file. It will determine our blog's exterior. 
                    <li>VIDEOS</li>
                    <li>SUBSCRIBE</li>
                </ul>       
-   </div>       
-   <div id="content">
+        </div>       
+        <div id="content">
                <h2><a href="ui_libraries_comparison.html">JavaScript UI libraries comparison</a></h2>
                <p>It seems to be pretty easy to create a good-looking web page. Even your neighbor has one or two of them. It's for sure! For approximately two decades of World Wide Web existence hordes of web developers are trying to improve the way of how you interact with the Global Network. And how it interacts with you through different technologies such as JavaScript, for example... <a class="article" href="ui_libraries_comparison.html">Read more</a></p>
                <h2><a href="">Node.js for beginners. Building your own web server</a></h2>
                <p>We will use Node.js for our project. Node.js is an open source, cross-platform runtime environment, which allows you to build server-side and networking applications. It's written in JavaScript and can be run within the Node.js runtime on any platform. First of all, of course, you need to install it... <a class="article" href="hode.html">Read more</a></p>
-           </div>
+    </div>
        </body>
    </html>
 ```
