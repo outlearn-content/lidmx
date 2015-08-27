@@ -17,6 +17,8 @@
 
 Error pages are not what typically appear on your screen when you're surfing the web, but when it happens it's so annoying! To see how servers work from within, we will build a simple web server by ourselves. We will use Node.js as a server part technology for that task. Then we'll use Heroku cloud application platform to turn this local server into a world wide server.
 
+<!-- @section -->
+
 ##  Why should I?
 
 Hi, everyone! Don't know how about you, but my weekend was great!
@@ -30,6 +32,8 @@ And I had to choose my evening movie randomly. It was "Sharknado". Should I say 
 To be honest, this is not what typically happens when you are surfing the web. But when it does... Man, it's so annoying! It's annoying, but we're curious, aren't we? And, for our curiosity to be satisfied, we will build a simple web server by ourselves. It will help us to see how it works (or how it won’t work) from within.
 
 * * *
+
+<!-- @section -->
 
 ## How can I?
 
@@ -246,7 +250,7 @@ We need to create the `index.html` file. It will determine our blog's exterior. 
               runtime on any platform. First of all, of course,
               you need to install it... <a class="article"
               href="hode.html">Read more</a></p>
-        </div> 
+        </div>
   </body>
 </html>
 ```
@@ -340,6 +344,8 @@ heroku open
 ```
 
 This command will open your Heroku project in your web browser. In this particular case, server address is https://myfirstserver.herokuapp.com/. Now you can share your first web application with any person you want.
+
+<!-- @section -->
 
 ## Looking back
 
