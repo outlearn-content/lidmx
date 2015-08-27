@@ -50,7 +50,7 @@ http.createServer(function(request, response) { 
  response.writeHead(200, {"Content-Type": "text/plain"}); 
  response.write("It's alive!"); 
  response.end();
- }).listen(3000);
+}).listen(3000);
 ```
 
 It's simple. It's tiny. But it's a server! Let's make sure it's working. Run at your terminal:
@@ -115,12 +115,14 @@ The first one will give you the key to Node's HTTP functionality. The second one
 Create the `package.json` file and fill it with proper information. Here's mine:
 
 ```json
-{  "name" : "blog",
-    "version" : "0.0.1",
-    "description" : "My minimalistic blog",  "dependencies" : {
+{ 
+  "name" : "blog",
+  "version" : "0.0.1",
+  "description" : "My minimalistic blog", 
+  "dependencies" : {
         "mime" : "~1.2.7"
-      }
   }
+}
 ```
 
 There are "name", "version", "description", and "dependencies" fields in it. The syntax is simple, as you can see. We added our "mime" plug-in and now it's time to download it. We'll use built-in Node Package Manager. Just run:
@@ -181,13 +183,13 @@ var server = http.createServer(function(request, response) { 
   var filePath = false; 
 
   if (request.url == '/'){
-        filePath = "public/index.html";
-   }  else {
-       filePath = "public" + request.url;
-   } 
+    filePath = "public/index.html";
+  }  else {
+    filePath = "public" + request.url;
+  } 
 
   var absPath = "./" + filePath;
-    serverWorking(response, absPath);
+  serverWorking(response, absPath);
 });
 ```
 
